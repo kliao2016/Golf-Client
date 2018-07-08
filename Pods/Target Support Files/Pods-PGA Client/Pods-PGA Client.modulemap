@@ -1,0 +1,6 @@
+framework module Pods_PGA_Client {
+  umbrella header "Pods-PGA Client-umbrella.h"
+
+  export *
+  module * { export * }
+}
