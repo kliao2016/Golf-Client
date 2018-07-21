@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Tournament {
+struct Tournament: Mappable {
     var tour: String?
     var name: String?
     var dateRange: String?
@@ -16,4 +17,19 @@ struct Tournament {
     var rounds: Int?
     var currentRound: Int?
     var lastUpdated: String?
+    
+    init?(map: Map) {
+        self.init(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
+        tour            <- map["tour"]
+        name            <- map["current_tournament"]
+        dateRange       <- map["date"]
+        course          <- map["course"]
+        rounds          <- map["rounds"]
+        currentRound    <- map["current_round"]
+        lastUpdated     <- map["last_updated"]
+    }
+    
 }
