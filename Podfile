@@ -8,5 +8,6 @@ target 'PGA Client' do
   # Pods for PGA Client
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'ObjectMapper'
 
 end

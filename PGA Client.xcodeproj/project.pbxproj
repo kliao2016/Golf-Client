@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100E04A720F2943600E0A24B /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E04A620F2943600E0A24B /* Tournament.swift */; };
 		107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65B20F1A70E00CD950A /* AppDelegate.swift */; };
 		107DA65E20F1A70E00CD950A /* TournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65D20F1A70E00CD950A /* TournamentViewController.swift */; };
 		107DA66120F1A70E00CD950A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA65F20F1A70E00CD950A /* Main.storyboard */; };
 		107DA66320F1A71000CD950A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66220F1A71000CD950A /* Assets.xcassets */; };
 		107DA66620F1A71000CD950A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66420F1A71000CD950A /* LaunchScreen.storyboard */; };
+		10AC7B8F20F3096000D3C0E0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC7B8E20F3096000D3C0E0 /* Player.swift */; };
+		10AC7B9220F3114400D3C0E0 /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC7B9120F3114400D3C0E0 /* TournamentViewModel.swift */; };
 		F580F615312B835389F8A25C /* Pods_PGA_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9352316DB66FBA6F97AA4DA1 /* Pods_PGA_Client.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100E04A620F2943600E0A24B /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		107DA65820F1A70E00CD950A /* PGA Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PGA Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107DA65B20F1A70E00CD950A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107DA65D20F1A70E00CD950A /* TournamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +27,8 @@
 		107DA66220F1A71000CD950A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107DA66520F1A71000CD950A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107DA66720F1A71000CD950A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10AC7B8E20F3096000D3C0E0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		10AC7B9120F3114400D3C0E0 /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		2CF8C79D7AADDFD1E1B4EEEA /* Pods-PGA Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGA Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGA Client/Pods-PGA Client.debug.xcconfig"; sourceTree = "<group>"; };
 		9352316DB66FBA6F97AA4DA1 /* Pods_PGA_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGA_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4438AA8ACF877AB90E2A9B /* Pods-PGA Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGA Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGA Client/Pods-PGA Client.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +49,7 @@
 		100E04A220F2916C00E0A24B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				107DA65D20F1A70E00CD950A /* TournamentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -50,6 +57,8 @@
 		100E04A420F2917F00E0A24B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				100E04A620F2943600E0A24B /* Tournament.swift */,
+				10AC7B8E20F3096000D3C0E0 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -82,17 +91,25 @@
 		107DA65A20F1A70E00CD950A /* PGA Client */ = {
 			isa = PBXGroup;
 			children = (
+				10AC7B9020F3113200D3C0E0 /* ViewModels */,
 				100E04A520F2919100E0A24B /* Views */,
 				100E04A420F2917F00E0A24B /* Models */,
 				100E04A220F2916C00E0A24B /* Controllers */,
 				107DA65B20F1A70E00CD950A /* AppDelegate.swift */,
-				107DA65D20F1A70E00CD950A /* TournamentViewController.swift */,
 				107DA65F20F1A70E00CD950A /* Main.storyboard */,
 				107DA66220F1A71000CD950A /* Assets.xcassets */,
 				107DA66420F1A71000CD950A /* LaunchScreen.storyboard */,
 				107DA66720F1A71000CD950A /* Info.plist */,
 			);
 			path = "PGA Client";
+			sourceTree = "<group>";
+		};
+		10AC7B9020F3113200D3C0E0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				10AC7B9120F3114400D3C0E0 /* TournamentViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2FB2AD851A0AF7A3806E11A1 /* Pods */ = {
@@ -124,7 +141,6 @@
 				107DA65520F1A70E00CD950A /* Frameworks */,
 				107DA65620F1A70E00CD950A /* Resources */,
 				5E785237F5C1A109A39796FF /* [CP] Embed Pods Frameworks */,
-				2AAAB81C8F421C5A01F2EB0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,21 +198,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AAAB81C8F421C5A01F2EB0B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PGA Client/Pods-PGA Client-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5E785237F5C1A109A39796FF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,11 +206,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PGA Client/Pods-PGA Client-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10AC7B8F20F3096000D3C0E0 /* Player.swift in Sources */,
+				100E04A720F2943600E0A24B /* Tournament.swift in Sources */,
 				107DA65E20F1A70E00CD950A /* TournamentViewController.swift in Sources */,
+				10AC7B9220F3114400D3C0E0 /* TournamentViewModel.swift in Sources */,
 				107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
