@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Create initial nav controller
+        let tournamentVC = TournamentCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: tournamentVC)
+        window?.makeKeyAndVisible()
+        
+        // Navbar customizations
+        UINavigationBar.appearance().tintColor = MainTheme.tint
+        UINavigationBar.appearance().barTintColor = MainTheme.accent
+        
+        
         return true
     }
 

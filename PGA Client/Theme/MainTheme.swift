@@ -9,8 +9,8 @@
 import UIKit
 
 struct MainTheme: ThemeProtocol {
-    var mainFontName: String = ""
-    var accent: UIColor = UIColor.blue
-    var background: UIColor = UIColor.blue
-    var tint: UIColor = UIColor.blue
+    static var accent: UIColor = UIColor.CustomColors.blue
+    static var background: UIColor = UIColor.CustomColors.light
+    static var tint: UIColor = UIColor.white
+    static var textColor: UIColor = UIColor.black
 }

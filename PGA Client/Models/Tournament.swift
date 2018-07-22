@@ -18,9 +18,7 @@ struct Tournament: Mappable {
     var currentRound: Int?
     var lastUpdated: String?
     
-    init?(map: Map) {
-        self.init(map: map)
-    }
+    init?(map: Map) {}
     
     mutating func mapping(map: Map) {
         tour            <- map["tour"]

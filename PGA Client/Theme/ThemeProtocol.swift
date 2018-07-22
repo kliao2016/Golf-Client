@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ThemeProtocol {
-    var mainFontName: String { get }
-    var accent: UIColor { get }
-    var background: UIColor { get }
-    var tint: UIColor { get }
+    static var accent: UIColor { get }
+    static var background: UIColor { get }
+    static var tint: UIColor { get }
+    static var textColor: UIColor { get }
 }

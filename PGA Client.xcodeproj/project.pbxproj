@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		100E04A720F2943600E0A24B /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E04A620F2943600E0A24B /* Tournament.swift */; };
+		102B763E210446EF002CDF47 /* TournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102B763D210446EF002CDF47 /* TournamentCollectionViewCell.swift */; };
+		102B764021044788002CDF47 /* TournamentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102B763F21044788002CDF47 /* TournamentCollectionViewController.swift */; };
 		1050E7D72103B465001BF415 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7D62103B465001BF415 /* Extensions.swift */; };
 		1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7D92103B580001BF415 /* MainTheme.swift */; };
 		1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */; };
 		107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65B20F1A70E00CD950A /* AppDelegate.swift */; };
-		107DA65E20F1A70E00CD950A /* TournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65D20F1A70E00CD950A /* TournamentViewController.swift */; };
 		107DA66120F1A70E00CD950A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA65F20F1A70E00CD950A /* Main.storyboard */; };
 		107DA66320F1A71000CD950A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66220F1A71000CD950A /* Assets.xcassets */; };
 		107DA66620F1A71000CD950A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66420F1A71000CD950A /* LaunchScreen.storyboard */; };
@@ -23,12 +24,13 @@
 
 /* Begin PBXFileReference section */
 		100E04A620F2943600E0A24B /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
+		102B763D210446EF002CDF47 /* TournamentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCollectionViewCell.swift; sourceTree = "<group>"; };
+		102B763F21044788002CDF47 /* TournamentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCollectionViewController.swift; sourceTree = "<group>"; };
 		1050E7D62103B465001BF415 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1050E7D92103B580001BF415 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		107DA65820F1A70E00CD950A /* PGA Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PGA Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107DA65B20F1A70E00CD950A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		107DA65D20F1A70E00CD950A /* TournamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewController.swift; sourceTree = "<group>"; };
 		107DA66020F1A70E00CD950A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		107DA66220F1A71000CD950A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107DA66520F1A71000CD950A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		100E04A220F2916C00E0A24B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				107DA65D20F1A70E00CD950A /* TournamentViewController.swift */,
+				102B763F21044788002CDF47 /* TournamentCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -72,6 +74,7 @@
 		100E04A520F2919100E0A24B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				102B763D210446EF002CDF47 /* TournamentCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,10 +277,11 @@
 			files = (
 				10AC7B8F20F3096000D3C0E0 /* Player.swift in Sources */,
 				1050E7D72103B465001BF415 /* Extensions.swift in Sources */,
+				102B763E210446EF002CDF47 /* TournamentCollectionViewCell.swift in Sources */,
 				100E04A720F2943600E0A24B /* Tournament.swift in Sources */,
 				1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */,
-				107DA65E20F1A70E00CD950A /* TournamentViewController.swift in Sources */,
 				10AC7B9220F3114400D3C0E0 /* TournamentViewModel.swift in Sources */,
+				102B764021044788002CDF47 /* TournamentCollectionViewController.swift in Sources */,
 				107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */,
 				1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */,
 			);
@@ -427,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = "PGA Client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = "PGA Client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
