@@ -15,6 +15,7 @@ class TournamentViewModel {
     var players: [Player]?
     typealias FetchCompletion = (() -> ())
     let tournamentURL: String = "https://ixgihulbxi.execute-api.us-east-1.amazonaws.com/dev/tournament"
+    let playerURL: String = "https://ixgihulbxi.execute-api.us-east-1.amazonaws.com/dev/players"
     let userInteractiveQueue = DispatchQueue.global(qos: .userInteractive)
     
     // Method to fetch current tournaments
@@ -28,8 +29,20 @@ class TournamentViewModel {
                 completion?()
             }
         }
-
+        
     }
     
-    func fetchPlayers() {}
+    func fetchPlayers(completion: FetchCompletion?) {
+        Alamofire.request(playerURL).responseArray(queue: userInteractiveQueue, keyPath: "body") { (response: DataResponse<[Player]>) in
+            if let playerArray = response.result.value {
+                for player in playerArray {
+                    self.players?.append(player)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion?()
+            }
+        }
+    }
 }

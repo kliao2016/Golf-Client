@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Player: NSObject {
+class Player: Mappable {
+    
     var name: String?
-    var position: Int?
-    var curRound: Round?
+    var position: String?
+    var curScore: Int?
     var totalScore: Int?
     var fedexRanking: Int?
     var fedexPts: Int?
@@ -19,9 +21,19 @@ class Player: NSObject {
     var projectedFedexPts: Int?
     var totalShots: Int?
     var rounds: [Int]?
-}
-
-struct Round {
-    var score: Int?
-    var thru: Int?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        name                    <- map["name"]
+        position                <- map["position"]
+        curScore                <- map["today_score"]
+        totalScore              <- map["total_score"]
+        fedexRanking            <- map["fedex_ranking"]
+        fedexPts                <- map["fedex_points"]
+        projectedFedexRanking   <- map["projected_fedex_ranking"]
+        projectedFedexPts       <- map["projected_fedex_points"]
+        totalShots              <- map["total_shots"]
+        rounds                  <- map["rounds"]
+    }
 }

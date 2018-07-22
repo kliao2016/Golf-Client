@@ -9,6 +9,14 @@
 import UIKit
 
 class TournamentCollectionViewCell: UICollectionViewCell {
+
+    override var isSelected: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+                self.transform = self.isSelected ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
+            }, completion: nil)
+        }
+    }
     
     var tournament: Tournament? {
         didSet {
