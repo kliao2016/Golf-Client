@@ -13,4 +13,7 @@ protocol ThemeProtocol {
     static var background: UIColor { get }
     static var tint: UIColor { get }
     static var textColor: UIColor { get }
+    static var textColorUnderPar: UIColor { get }
+    static var textColorOverPar: UIColor { get }
+    static var textColorEven: UIColor { get }
 }

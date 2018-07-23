@@ -66,7 +66,7 @@ extension LeaderboardViewController: UITableViewDelegate {
             print("Tracking player")
         }
         
-        trackAction.backgroundColor = MainTheme.accent
+        trackAction.backgroundColor = UIColor.CustomColors.green
         return [trackAction]
     }
 }

@@ -11,7 +11,20 @@ import UIKit
 class LeaderboardTableViewCell: UITableViewCell {
     var player: Player? {
         didSet {
-            playerLabel.text = player?.name
+            playerLabel.text = "\(player?.position ?? "") - \(player?.name ?? "")"
+            thruLabel.text = "Thru: \(player?.thru ?? "F")"
+            if let score = player?.todayScore {
+                if score < 0 {
+                    todayScoreLabel.textColor = MainTheme.textColorUnderPar
+                    todayScoreLabel.text = "\(String((player?.todayScore)!))"
+                } else if score == 0 {
+                    todayScoreLabel.textColor = MainTheme.textColorEven
+                    todayScoreLabel.text = "Even"
+                } else {
+                    todayScoreLabel.textColor = MainTheme.textColorOverPar
+                    todayScoreLabel.text = "+\(String((player?.todayScore)!))"
+                }
+            }
         }
     }
     
@@ -20,6 +33,24 @@ class LeaderboardTableViewCell: UITableViewCell {
         
         label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
         label.textColor = MainTheme.textColor
+        return label
+    }()
+    
+    let todayScoreLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
+        label.textColor = MainTheme.textColor
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let thruLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
+        label.textColor = MainTheme.textColor
+        label.textAlignment = .right
         return label
     }()
     
@@ -34,9 +65,19 @@ class LeaderboardTableViewCell: UITableViewCell {
     }
     
     func setupViews() {
+        self.backgroundColor = MainTheme.background
         addSubview(playerLabel)
+        addSubview(todayScoreLabel)
+        addSubview(thruLabel)
         
+        // Horizontal Constraints
         addConstraintsWithFormat(format: "H:|-16-[v0]|", views: playerLabel)
+        addConstraintsWithFormat(format: "H:|[v0]-16-|", views: todayScoreLabel)
+        addConstraintsWithFormat(format: "H:|[v0]-16-|", views: thruLabel)
+        addConstraint(NSLayoutConstraint(item: playerLabel, attribute: .width, relatedBy: .equal, toItem: todayScoreLabel, attribute: .width, multiplier: 1.0, constant: 0))
+        
+        // Vertical Constraints
         addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: playerLabel)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-[v1]-16-|", views: thruLabel, todayScoreLabel)
     }
 }

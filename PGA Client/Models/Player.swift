@@ -13,13 +13,14 @@ class Player: Mappable {
     
     var name: String?
     var position: String?
-    var curScore: Int?
+    var todayScore: Int?
     var totalScore: Int?
     var fedexRanking: Int?
     var fedexPts: Int?
     var projectedFedexRanking: Int?
     var projectedFedexPts: Int?
     var totalShots: Int?
+    var thru: String?
     var rounds: [Int]?
     
     required init?(map: Map) {}
@@ -27,13 +28,14 @@ class Player: Mappable {
     func mapping(map: Map) {
         name                    <- map["name"]
         position                <- map["position"]
-        curScore                <- map["today_score"]
+        todayScore              <- map["today_score"]
         totalScore              <- map["total_score"]
         fedexRanking            <- map["fedex_ranking"]
         fedexPts                <- map["fedex_points"]
         projectedFedexRanking   <- map["projected_fedex_ranking"]
         projectedFedexPts       <- map["projected_fedex_points"]
         totalShots              <- map["total_shots"]
+        thru                    <- map["thru"]
         rounds                  <- map["rounds"]
     }
 }
