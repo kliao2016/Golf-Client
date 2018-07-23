@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = MainTheme.tint
         UINavigationBar.appearance().barTintColor = MainTheme.accent
         
-        
         return true
     }
 

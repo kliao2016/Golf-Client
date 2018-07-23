@@ -11,6 +11,6 @@ import UIKit
 struct MainTheme: ThemeProtocol {
     static var accent: UIColor = UIColor.CustomColors.blue
     static var background: UIColor = UIColor.CustomColors.light
-    static var tint: UIColor = UIColor.white
+    static var tint: UIColor = UIColor.black
     static var textColor: UIColor = UIColor.black
 }

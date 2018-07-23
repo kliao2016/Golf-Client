@@ -56,6 +56,7 @@ class TournamentCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(descriptor: label.font.fontDescriptor, size: 30)
         label.textColor = MainTheme.textColor
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

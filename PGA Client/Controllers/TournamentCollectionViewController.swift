@@ -12,14 +12,13 @@ class TournamentCollectionViewController: UICollectionViewController {
     
     private let reuseIdentifier = "TournamentCell"
     private let cellsPerRow = 1
-    private let tournamentViewModel = TournamentViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Tours"
         
-        tournamentViewModel.fetchTournament { [unowned self] in
+        TournamentViewModel.fetchTournament { [unowned self] in
             self.collectionView?.reloadData()
             self.collectionViewLayout.invalidateLayout()
         }
@@ -69,13 +68,22 @@ extension TournamentCollectionViewController: UICollectionViewDelegateFlowLayout
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TournamentCollectionViewCell
         
-        cell.tournament = tournamentViewModel.tournament
+        cell.tournament = TournamentViewModel.tournament
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        if TournamentViewModel.tournament != nil {
+            LeaderboardViewModel.currentTournament = TournamentViewModel.tournament
+            let leaderboardVC = LeaderboardViewController()
+            
+            DispatchQueue.main.async { [unowned self] in
+                self.present(UINavigationController(rootViewController: leaderboardVC), animated: true)
+            }
+        }
     }
     
 }

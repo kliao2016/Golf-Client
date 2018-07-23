@@ -11,18 +11,16 @@ import AlamofireObjectMapper
 import Alamofire
 
 class TournamentViewModel {
-    var tournament: Tournament?
-    var players: [Player]?
+    static var tournament: Tournament?
     typealias FetchCompletion = (() -> ())
-    let tournamentURL: String = "https://ixgihulbxi.execute-api.us-east-1.amazonaws.com/dev/tournament"
-    let playerURL: String = "https://ixgihulbxi.execute-api.us-east-1.amazonaws.com/dev/players"
-    let userInteractiveQueue = DispatchQueue.global(qos: .userInteractive)
+    static let tournamentURL = "https://ixgihulbxi.execute-api.us-east-1.amazonaws.com/dev/tournament"
+    static let userInteractiveQueue = DispatchQueue.global(qos: .userInteractive)
     
     // Method to fetch current tournaments
-    func fetchTournament(completion: FetchCompletion?) {
+    static func fetchTournament(completion: FetchCompletion?) {
         Alamofire.request(tournamentURL).responseObject(queue: userInteractiveQueue, keyPath: "body") { (response: DataResponse<Tournament>) in
             if let tournamentResponse = response.result.value {
-                self.tournament = tournamentResponse
+                tournament = tournamentResponse
             }
             
             DispatchQueue.main.async {
@@ -30,19 +28,5 @@ class TournamentViewModel {
             }
         }
         
-    }
-    
-    func fetchPlayers(completion: FetchCompletion?) {
-        Alamofire.request(playerURL).responseArray(queue: userInteractiveQueue, keyPath: "body") { (response: DataResponse<[Player]>) in
-            if let playerArray = response.result.value {
-                for player in playerArray {
-                    self.players?.append(player)
-                }
-            }
-            
-            DispatchQueue.main.async {
-                completion?()
-            }
-        }
     }
 }

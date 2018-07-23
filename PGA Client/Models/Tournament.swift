@@ -17,6 +17,7 @@ struct Tournament: Mappable {
     var rounds: Int?
     var currentRound: Int?
     var lastUpdated: String?
+    var par: Int?
     
     init?(map: Map) {}
     
@@ -28,6 +29,7 @@ struct Tournament: Mappable {
         rounds          <- map["rounds"]
         currentRound    <- map["current_round"]
         lastUpdated     <- map["last_updated"]
+        par             <- map["total_par"]
     }
     
 }

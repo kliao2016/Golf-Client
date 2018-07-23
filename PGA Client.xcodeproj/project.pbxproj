@@ -16,6 +16,7 @@
 		1050E7D72103B465001BF415 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7D62103B465001BF415 /* Extensions.swift */; };
 		1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7D92103B580001BF415 /* MainTheme.swift */; };
 		1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */; };
+		105FBA9D2105511600CC3F5A /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FBA9C2105511600CC3F5A /* LeaderboardViewModel.swift */; };
 		107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65B20F1A70E00CD950A /* AppDelegate.swift */; };
 		107DA66120F1A70E00CD950A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA65F20F1A70E00CD950A /* Main.storyboard */; };
 		107DA66320F1A71000CD950A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66220F1A71000CD950A /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		1050E7D62103B465001BF415 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1050E7D92103B580001BF415 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		105FBA9C2105511600CC3F5A /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		107DA65820F1A70E00CD950A /* PGA Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PGA Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107DA65B20F1A70E00CD950A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107DA66020F1A70E00CD950A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				100BA55321053BC3005C7005 /* TournamentViewModel.swift */,
+				105FBA9C2105511600CC3F5A /* LeaderboardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */,
 				102B764021044788002CDF47 /* TournamentCollectionViewController.swift in Sources */,
 				107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */,
+				105FBA9D2105511600CC3F5A /* LeaderboardViewModel.swift in Sources */,
 				1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
