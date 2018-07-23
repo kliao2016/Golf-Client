@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class TournamentCollectionViewController: UICollectionViewController {
     
@@ -18,12 +19,24 @@ class TournamentCollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Tours"
         
+        setupCollectionFlowLayout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    private func loadData() {
+        let activityFrame = CGRect(x: view.center.x - 30, y: view.center.y - 30, width: 60, height: 60)
+        let activityIndicator = NVActivityIndicatorView(frame: activityFrame, type: NVActivityIndicatorType.circleStrokeSpin, color: MainTheme.accent, padding: 8)
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         TournamentViewModel.fetchTournament { [unowned self] in
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
             self.collectionView?.reloadData()
             self.collectionViewLayout.invalidateLayout()
         }
-        
-        setupCollectionFlowLayout()
     }
     
     override func viewWillLayoutSubviews() {
@@ -80,9 +93,7 @@ extension TournamentCollectionViewController: UICollectionViewDelegateFlowLayout
             LeaderboardViewModel.currentTournament = TournamentViewModel.tournament
             let leaderboardVC = LeaderboardViewController()
             
-            DispatchQueue.main.async { [unowned self] in
-                self.present(UINavigationController(rootViewController: leaderboardVC), animated: true)
-            }
+            self.present(UINavigationController(rootViewController: leaderboardVC), animated: true)
         }
     }
     

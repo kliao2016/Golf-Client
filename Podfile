@@ -10,7 +10,6 @@ target 'PGA Client' do
 
   # Pods for PGA Client
   pod 'Alamofire'
-  pod 'SwiftyJSON'
   pod 'AlamofireObjectMapper'
-
+  pod 'NVActivityIndicatorView'
 end

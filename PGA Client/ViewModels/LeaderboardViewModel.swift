@@ -23,6 +23,7 @@ class LeaderboardViewModel {
         Alamofire.request(playerURL).responseArray(queue: userInteractiveQueue, keyPath: "body.players") { (response: DataResponse<[Player]>) in
             if let playerArray = response.result.value {
                 for player in playerArray {
+                    print(player.thru)
                     players.append(player)
                 }
             }

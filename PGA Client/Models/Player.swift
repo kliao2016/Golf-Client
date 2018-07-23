@@ -20,7 +20,7 @@ class Player: Mappable {
     var projectedFedexRanking: Int?
     var projectedFedexPts: Int?
     var totalShots: Int?
-    var thru: String?
+    var thru: Int?
     var rounds: [Int]?
     
     required init?(map: Map) {}

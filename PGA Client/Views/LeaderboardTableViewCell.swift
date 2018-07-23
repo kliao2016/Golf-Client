@@ -12,7 +12,17 @@ class LeaderboardTableViewCell: UITableViewCell {
     var player: Player? {
         didSet {
             playerLabel.text = "\(player?.position ?? "") - \(player?.name ?? "")"
-            thruLabel.text = "Thru: \(player?.thru ?? "F")"
+            
+            if let thru = player?.thru {
+                if thru == 18 {
+                    thruLabel.text = "Thru: F"
+                } else {
+                    thruLabel.text = "Thru: \(String((player?.thru)!))"
+                }
+            } else {
+                thruLabel.text = "Thru: -"
+            }
+            
             if let score = player?.todayScore {
                 if score < 0 {
                     todayScoreLabel.textColor = MainTheme.textColorUnderPar
@@ -24,6 +34,9 @@ class LeaderboardTableViewCell: UITableViewCell {
                     todayScoreLabel.textColor = MainTheme.textColorOverPar
                     todayScoreLabel.text = "+\(String((player?.todayScore)!))"
                 }
+            } else {
+                todayScoreLabel.textColor = MainTheme.textColor
+                todayScoreLabel.text = "Today: No score yet"
             }
         }
     }

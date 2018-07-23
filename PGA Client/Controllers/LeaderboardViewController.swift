@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class LeaderboardViewController: UIViewController {
     
@@ -22,10 +23,6 @@ class LeaderboardViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         
-        LeaderboardViewModel.fetchPlayers { [unowned self] in
-            self.tableView.reloadData()
-        }
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
@@ -34,6 +31,22 @@ class LeaderboardViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: exitImage, style: .done, target: self, action: #selector(dismissView))
         
         addConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    private func loadData() {
+        let activityFrame = CGRect(x: tableView.center.x - 30, y: tableView.center.y - 30, width: 60, height: 60)
+        let activityIndicator = NVActivityIndicatorView(frame: activityFrame, type: NVActivityIndicatorType.circleStrokeSpin, color: MainTheme.accent, padding: 8)
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        LeaderboardViewModel.fetchPlayers { [unowned self] in
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            self.tableView.reloadData()
+        }
     }
     
     private func setupTableView() {
@@ -84,7 +97,8 @@ extension LeaderboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LeaderboardTableViewCell
         
-        cell.player = LeaderboardViewModel.players[indexPath.row]
+        let length = LeaderboardViewModel.players.count
+        cell.player = LeaderboardViewModel.players[indexPath.row % length]
         
         return cell
     }
