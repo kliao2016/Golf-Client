@@ -21,6 +21,7 @@ class LeaderboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = MainTheme.accent
         setupTableView()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -82,6 +83,42 @@ extension LeaderboardViewController: UITableViewDelegate {
         trackAction.backgroundColor = UIColor.CustomColors.green
         return [trackAction]
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = MainTheme.accent
+        let posLabel = UILabel()
+        let nameLabel = UILabel()
+        let totalLabel = UILabel()
+        let thruLabel = UILabel()
+        let todayLabel = UILabel()
+        posLabel.text = "Pos"
+        nameLabel.text = "Player"
+        totalLabel.text = "Tot"
+        totalLabel.textAlignment = .center
+        thruLabel.text = "Thru"
+        thruLabel.textAlignment = .center
+        todayLabel.text = "R\(String((LeaderboardViewModel.currentTournament?.currentRound)!))"
+        todayLabel.textAlignment = .center
+        headerView.addSubview(posLabel)
+        headerView.addSubview(nameLabel)
+        headerView.addSubview(totalLabel)
+        headerView.addSubview(thruLabel)
+        headerView.addSubview(todayLabel)
+        
+        headerView.addConstraintsWithFormat(format: "H:|-16-[v0(32)]-8-[v1]", views: posLabel, nameLabel)
+        headerView.addConstraintsWithFormat(format: "H:[v0(32)]-[v1(40)]-[v2(32)]-16-|", views: totalLabel, thruLabel, todayLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: posLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: nameLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: totalLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: thruLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: todayLabel)
+        headerView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .right, relatedBy: .equal, toItem: totalLabel, attribute: .left, multiplier: 1.0, constant: 0))
+        
+        return headerView
+    }
+    
+    
 }
 
 extension LeaderboardViewController: UITableViewDataSource {

@@ -11,16 +11,32 @@ import UIKit
 class LeaderboardTableViewCell: UITableViewCell {
     var player: Player? {
         didSet {
-            playerLabel.text = "\(player?.position ?? "") - \(player?.name ?? "")"
-            
+            posLabel.text = "\(player?.position ?? "")"
+            playerLabel.text = "\(player?.name ?? "")"
             if let thru = player?.thru {
                 if thru == 18 {
-                    thruLabel.text = "Thru: F"
+                    thruLabel.text = "F"
                 } else {
-                    thruLabel.text = "Thru: \(String((player?.thru)!))"
+                    thruLabel.text = "\(String((player?.thru)!))"
                 }
             } else {
-                thruLabel.text = "Thru: -"
+                thruLabel.text = "-"
+            }
+            
+            if let score = player?.totalScore {
+                if score < 0 {
+                    totalScoreLabel.textColor = MainTheme.textColorUnderPar
+                    totalScoreLabel.text = "\(String((player?.totalScore)!))"
+                } else if score == 0 {
+                    totalScoreLabel.textColor = MainTheme.textColorEven
+                    totalScoreLabel.text = "Even"
+                } else {
+                    totalScoreLabel.textColor = MainTheme.textColorOverPar
+                    totalScoreLabel.text = "+\(String((player?.totalScore)!))"
+                }
+            } else {
+                totalScoreLabel.textColor = MainTheme.textColor
+                totalScoreLabel.text = "-"
             }
             
             if let score = player?.todayScore {
@@ -36,10 +52,28 @@ class LeaderboardTableViewCell: UITableViewCell {
                 }
             } else {
                 todayScoreLabel.textColor = MainTheme.textColor
-                todayScoreLabel.text = "Today: No score yet"
+                todayScoreLabel.text = "-"
             }
         }
     }
+    
+    let posLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
+        label.textColor = MainTheme.textColor
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let totalScoreLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
+        label.textColor = MainTheme.textColor
+        label.textAlignment = .center
+        return label
+    }()
     
     let playerLabel: UILabel = {
         let label = UILabel()
@@ -54,7 +88,7 @@ class LeaderboardTableViewCell: UITableViewCell {
         
         label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
         label.textColor = MainTheme.textColor
-        label.textAlignment = .right
+        label.textAlignment = .center
         return label
     }()
     
@@ -63,7 +97,7 @@ class LeaderboardTableViewCell: UITableViewCell {
         
         label.font = UIFont(descriptor: label.font.fontDescriptor, size: 14)
         label.textColor = MainTheme.textColor
-        label.textAlignment = .right
+        label.textAlignment = .center
         return label
     }()
     
@@ -79,18 +113,22 @@ class LeaderboardTableViewCell: UITableViewCell {
     
     func setupViews() {
         self.backgroundColor = MainTheme.background
+        addSubview(posLabel)
         addSubview(playerLabel)
+        addSubview(totalScoreLabel)
         addSubview(todayScoreLabel)
         addSubview(thruLabel)
         
         // Horizontal Constraints
-        addConstraintsWithFormat(format: "H:|-16-[v0]|", views: playerLabel)
-        addConstraintsWithFormat(format: "H:|[v0]-16-|", views: todayScoreLabel)
-        addConstraintsWithFormat(format: "H:|[v0]-16-|", views: thruLabel)
-        addConstraint(NSLayoutConstraint(item: playerLabel, attribute: .width, relatedBy: .equal, toItem: todayScoreLabel, attribute: .width, multiplier: 1.0, constant: 0))
+        addConstraintsWithFormat(format: "H:|-16-[v0(32)]-8-[v1]", views: posLabel, playerLabel)
+        addConstraintsWithFormat(format: "H:[v0(32)]-[v1(40)]-[v2(32)]-16-|", views: totalScoreLabel, thruLabel, todayScoreLabel)
+        addConstraint(NSLayoutConstraint(item: playerLabel, attribute: .right, relatedBy: .equal, toItem: totalScoreLabel, attribute: .left, multiplier: 1.0, constant: 0))
         
         // Vertical Constraints
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: posLabel)
         addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: playerLabel)
-        addConstraintsWithFormat(format: "V:|-16-[v0]-[v1]-16-|", views: thruLabel, todayScoreLabel)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: totalScoreLabel)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: thruLabel)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: todayScoreLabel)
     }
 }

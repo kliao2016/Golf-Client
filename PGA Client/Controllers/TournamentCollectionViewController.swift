@@ -52,9 +52,9 @@ class TournamentCollectionViewController: UICollectionViewController {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 24
         flowLayout.sectionInset.top = 24
-        flowLayout.sectionInset.bottom = 40
-        flowLayout.sectionInset.left = 40
-        flowLayout.sectionInset.right = 40
+        flowLayout.sectionInset.bottom = 48
+        flowLayout.sectionInset.left = 48
+        flowLayout.sectionInset.right = 48
         
         collectionView.backgroundColor = MainTheme.background
         collectionView.contentInsetAdjustmentBehavior = .always
