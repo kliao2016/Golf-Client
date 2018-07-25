@@ -20,6 +20,7 @@ class PlayerInfoViewController: UIViewController {
     @IBOutlet weak var round3: UILabel!
     @IBOutlet weak var round4: UILabel!
     @IBOutlet weak var trackButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
     
     var rank: Int?
     var points: Int?
@@ -33,8 +34,11 @@ class PlayerInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = playerName
         self.view.backgroundColor = MainTheme.background
+        contentView.backgroundColor = MainTheme.background
         
         trackButton.backgroundColor = MainTheme.textColorEven
         trackButton.layer.cornerRadius = 5.0
