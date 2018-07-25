@@ -53,7 +53,7 @@ class LeaderboardViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.CustomColors.light
+        tableView.backgroundColor = MainTheme.background
         tableView.register(LeaderboardTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
@@ -75,6 +75,22 @@ class LeaderboardViewController: UIViewController {
 }
 
 extension LeaderboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let playerInfoVC = sb.instantiateViewController(withIdentifier: "PlayerInfoViewController") as! PlayerInfoViewController
+        playerInfoVC.rank = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].fedexRanking
+        playerInfoVC.points = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].fedexPts
+        playerInfoVC.projRank = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].projectedFedexRanking
+        playerInfoVC.projPoints = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].projectedFedexPts
+        playerInfoVC.firstScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[0]
+        playerInfoVC.secondScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[1]
+        playerInfoVC.thirdScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[2]
+        playerInfoVC.fourthScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[3]
+        playerInfoVC.playerName = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].name ?? "Player"
+        
+        self.navigationController?.pushViewController(playerInfoVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let trackAction = UITableViewRowAction(style: .default, title: "Track Player") { (action, indexpath) in
             print("Tracking player")
@@ -136,6 +152,10 @@ extension LeaderboardViewController: UITableViewDataSource {
         
         let length = LeaderboardViewModel.players.count
         cell.player = LeaderboardViewModel.players[indexPath.row % length]
+        
+        let selectView = UIView()
+        selectView.backgroundColor = UIColor.CustomColors.lightBlue
+        cell.selectedBackgroundView = selectView
         
         return cell
     }
