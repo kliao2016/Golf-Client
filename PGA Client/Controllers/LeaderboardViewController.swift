@@ -21,6 +21,7 @@ class LeaderboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = MainTheme.accent
         setupTableView()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -52,7 +53,7 @@ class LeaderboardViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.CustomColors.light
+        tableView.backgroundColor = MainTheme.background
         tableView.register(LeaderboardTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
@@ -74,6 +75,22 @@ class LeaderboardViewController: UIViewController {
 }
 
 extension LeaderboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let playerInfoVC = sb.instantiateViewController(withIdentifier: "PlayerInfoViewController") as! PlayerInfoViewController
+        playerInfoVC.rank = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].fedexRanking
+        playerInfoVC.points = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].fedexPts
+        playerInfoVC.projRank = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].projectedFedexRanking
+        playerInfoVC.projPoints = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].projectedFedexPts
+        playerInfoVC.firstScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[0]
+        playerInfoVC.secondScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[1]
+        playerInfoVC.thirdScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[2]
+        playerInfoVC.fourthScore = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].rounds?[3]
+        playerInfoVC.playerName = LeaderboardViewModel.players[indexPath.row % LeaderboardViewModel.players.count].name ?? "Player"
+        
+        self.navigationController?.pushViewController(playerInfoVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let trackAction = UITableViewRowAction(style: .default, title: "Track Player") { (action, indexpath) in
             print("Tracking player")
@@ -82,6 +99,42 @@ extension LeaderboardViewController: UITableViewDelegate {
         trackAction.backgroundColor = UIColor.CustomColors.green
         return [trackAction]
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = MainTheme.accent
+        let posLabel = UILabel()
+        let nameLabel = UILabel()
+        let totalLabel = UILabel()
+        let thruLabel = UILabel()
+        let todayLabel = UILabel()
+        posLabel.text = "Pos"
+        nameLabel.text = "Player"
+        totalLabel.text = "Tot"
+        totalLabel.textAlignment = .center
+        thruLabel.text = "Thru"
+        thruLabel.textAlignment = .center
+        todayLabel.text = "R\(String((LeaderboardViewModel.currentTournament?.currentRound)!))"
+        todayLabel.textAlignment = .center
+        headerView.addSubview(posLabel)
+        headerView.addSubview(nameLabel)
+        headerView.addSubview(totalLabel)
+        headerView.addSubview(thruLabel)
+        headerView.addSubview(todayLabel)
+        
+        headerView.addConstraintsWithFormat(format: "H:|-16-[v0(32)]-8-[v1]", views: posLabel, nameLabel)
+        headerView.addConstraintsWithFormat(format: "H:[v0(32)]-[v1(40)]-[v2(32)]-16-|", views: totalLabel, thruLabel, todayLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: posLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: nameLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: totalLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: thruLabel)
+        headerView.addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: todayLabel)
+        headerView.addConstraint(NSLayoutConstraint(item: nameLabel, attribute: .right, relatedBy: .equal, toItem: totalLabel, attribute: .left, multiplier: 1.0, constant: 0))
+        
+        return headerView
+    }
+    
+    
 }
 
 extension LeaderboardViewController: UITableViewDataSource {
@@ -99,6 +152,10 @@ extension LeaderboardViewController: UITableViewDataSource {
         
         let length = LeaderboardViewModel.players.count
         cell.player = LeaderboardViewModel.players[indexPath.row % length]
+        
+        let selectView = UIView()
+        selectView.backgroundColor = UIColor.CustomColors.lightBlue
+        cell.selectedBackgroundView = selectView
         
         return cell
     }

@@ -17,6 +17,7 @@
 		1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7D92103B580001BF415 /* MainTheme.swift */; };
 		1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */; };
 		105FBA9D2105511600CC3F5A /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105FBA9C2105511600CC3F5A /* LeaderboardViewModel.swift */; };
+		106406F02107F9EA00477E82 /* PlayerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106406EF2107F9EA00477E82 /* PlayerInfoViewController.swift */; };
 		107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107DA65B20F1A70E00CD950A /* AppDelegate.swift */; };
 		107DA66120F1A70E00CD950A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA65F20F1A70E00CD950A /* Main.storyboard */; };
 		107DA66320F1A71000CD950A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107DA66220F1A71000CD950A /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		1050E7D92103B580001BF415 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		1050E7DB2103B58D001BF415 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		105FBA9C2105511600CC3F5A /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		106406EF2107F9EA00477E82 /* PlayerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewController.swift; sourceTree = "<group>"; };
 		107DA65820F1A70E00CD950A /* PGA Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PGA Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107DA65B20F1A70E00CD950A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107DA66020F1A70E00CD950A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				102B763F21044788002CDF47 /* TournamentCollectionViewController.swift */,
 				100BA5512105328E005C7005 /* LeaderboardViewController.swift */,
+				106406EF2107F9EA00477E82 /* PlayerInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				100E04A720F2943600E0A24B /* Tournament.swift in Sources */,
 				1050E7DC2103B58D001BF415 /* ThemeProtocol.swift in Sources */,
 				102B764021044788002CDF47 /* TournamentCollectionViewController.swift in Sources */,
+				106406F02107F9EA00477E82 /* PlayerInfoViewController.swift in Sources */,
 				107DA65C20F1A70E00CD950A /* AppDelegate.swift in Sources */,
 				105FBA9D2105511600CC3F5A /* LeaderboardViewModel.swift in Sources */,
 				1050E7DA2103B580001BF415 /* MainTheme.swift in Sources */,

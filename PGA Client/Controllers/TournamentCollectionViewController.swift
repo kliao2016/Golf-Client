@@ -17,6 +17,8 @@ class TournamentCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = "Tours"
         
         setupCollectionFlowLayout()
@@ -27,10 +29,13 @@ class TournamentCollectionViewController: UICollectionViewController {
     }
     
     private func loadData() {
+        // Create activity indicator
         let activityFrame = CGRect(x: view.center.x - 30, y: view.center.y - 30, width: 60, height: 60)
         let activityIndicator = NVActivityIndicatorView(frame: activityFrame, type: NVActivityIndicatorType.circleStrokeSpin, color: MainTheme.accent, padding: 8)
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
+        
+        // Fetch ongoing tournaments
         TournamentViewModel.fetchTournament { [unowned self] in
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
@@ -52,9 +57,9 @@ class TournamentCollectionViewController: UICollectionViewController {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 24
         flowLayout.sectionInset.top = 24
-        flowLayout.sectionInset.bottom = 40
-        flowLayout.sectionInset.left = 40
-        flowLayout.sectionInset.right = 40
+        flowLayout.sectionInset.bottom = 48
+        flowLayout.sectionInset.left = 48
+        flowLayout.sectionInset.right = 48
         
         collectionView.backgroundColor = MainTheme.background
         collectionView.contentInsetAdjustmentBehavior = .always
