@@ -36,6 +36,7 @@ class PlayerInfoViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = MainTheme.accent
         self.navigationItem.title = playerName
         self.view.backgroundColor = MainTheme.background
         contentView.backgroundColor = MainTheme.background

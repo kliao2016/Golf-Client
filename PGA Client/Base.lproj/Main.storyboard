@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsc-rn-U7d">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="586"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="656"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="award" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-ps-TKs">
                                                 <rect key="frame" x="143" y="52" width="90" height="90"/>
@@ -159,7 +159,7 @@
                                             <constraint firstItem="hlF-y1-mhh" firstAttribute="leading" secondItem="Qsc-rn-U7d" secondAttribute="leadingMargin" constant="16" id="2v0-LJ-njC"/>
                                             <constraint firstItem="UZl-6D-ZOq" firstAttribute="width" secondItem="qUH-R7-5fS" secondAttribute="width" id="4F4-cm-xII"/>
                                             <constraint firstItem="C6v-oB-uMr" firstAttribute="leading" secondItem="Ks2-wE-VtP" secondAttribute="trailing" constant="40" id="6cZ-zf-FGC"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="hlF-y1-mhh" secondAttribute="bottom" id="7lk-py-79B"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="hlF-y1-mhh" secondAttribute="bottom" constant="70" id="7lk-py-79B"/>
                                             <constraint firstItem="BH0-ps-TKs" firstAttribute="centerX" secondItem="Qsc-rn-U7d" secondAttribute="centerX" id="8IZ-wo-JoY"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="qUH-R7-5fS" secondAttribute="trailing" constant="16" id="A7G-B2-qjq"/>
                                             <constraint firstItem="Ks2-wE-VtP" firstAttribute="width" secondItem="C6v-oB-uMr" secondAttribute="width" id="B3H-TU-YlW"/>

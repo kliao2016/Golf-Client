@@ -27,6 +27,7 @@ class LeaderboardViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = MainTheme.accent
         self.navigationItem.title = "Leaderboard"
         let exitImage = UIImage.init(named: "exit")?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: exitImage, style: .done, target: self, action: #selector(dismissView))
@@ -53,7 +54,7 @@ class LeaderboardViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = MainTheme.background
+        tableView.backgroundColor = MainTheme.accent
         tableView.register(LeaderboardTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
