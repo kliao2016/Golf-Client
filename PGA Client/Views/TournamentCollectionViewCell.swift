@@ -81,7 +81,8 @@ class TournamentCollectionViewCell: UICollectionViewCell {
     
     func setupViews() {
         self.createHoverEffect()
-        self.backgroundColor = UIColor.CustomColors.green
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "temp")!)
+        self.contentMode = .scaleAspectFill
         
         infoStackView.insertArrangedSubview(tournamentName, at: 0)
         infoStackView.insertArrangedSubview(courseName, at: 1)
