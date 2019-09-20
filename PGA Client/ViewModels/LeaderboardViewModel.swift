@@ -21,6 +21,7 @@ class LeaderboardViewModel {
     
     static func fetchPlayers(completion: FetchCompletion?) {
         Alamofire.request(playerURL).responseArray(queue: userInteractiveQueue, keyPath: "body.players") { (response: DataResponse<[Player]>) in
+            print(response.result.value![0].rounds)
             if let playerArray = response.result.value {
                 for player in playerArray {
                     players.append(player)

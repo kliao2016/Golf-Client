@@ -9,7 +9,7 @@ target 'PGA Client' do
   inhibit_all_warnings!
 
   # Pods for PGA Client
-  pod 'Alamofire'
-  pod 'AlamofireObjectMapper'
+  pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'NVActivityIndicatorView'
 end

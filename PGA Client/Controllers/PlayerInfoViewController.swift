@@ -102,7 +102,7 @@ extension UILabel {
         if let num = number {
             self.text = String(num)
         } else {
-            self.text = "N/A"
+            self.text = "--"
         }
     }
 }

@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (4.7.1)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
-  - NVActivityIndicatorView (4.1.1):
-    - NVActivityIndicatorView/Presenter (= 4.1.1)
-  - NVActivityIndicatorView/Presenter (4.1.1)
-  - ObjectMapper (3.1.0)
+  - Alamofire (4.9.0)
+  - AlamofireObjectMapper (5.2.1):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlamofireObjectMapper
+  - Alamofire (~> 4.7)
+  - AlamofireObjectMapper (~> 5.2)
   - NVActivityIndicatorView
 
 SPEC REPOS:
@@ -21,11 +21,11 @@ SPEC REPOS:
     - ObjectMapper
 
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
-  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
-  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
-PODFILE CHECKSUM: 9af71acc06af5cf3a23fbd7427fc1c38905ca353
+PODFILE CHECKSUM: a8319fe5d9f877b7c45bfdf6662ba7aa3a744eb7
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.0
